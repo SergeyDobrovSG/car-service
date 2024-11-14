@@ -395,7 +395,7 @@ svg * {
   font-weight: 700;
 }
 .hero_back-img {
-  background-image: url(/images/main/hero.svg);
+  background-image: url(../images/main/hero.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
