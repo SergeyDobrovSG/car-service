@@ -1,0 +1,783 @@
+@charset "UTF-8";
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+   Упрощаем работу с изображениями
+  */
+img {
+  display: block;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  height: 100%;
+}
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  min-height: 100%;
+  /**
+     Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Stem", sans-serif;
+  src: url("../fonts/Stem-Regular.woff2") format(woff2);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stem", sans-serif;
+  src: url("../fonts/Stem-Medium.woff2") format(woff2);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stem", sans-serif;
+  src: url("../fonts/Stem-Bold.woff2") format(woff2);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy", sans-serif;
+  src: url("../fonts/Gilroy-SemiBold.woff2.woff2") format(woff2);
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy", sans-serif;
+  src: url("../fonts/Gilroy-Medium.woff2.woff2") format(woff2);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy", sans-serif;
+  src: url("../fonts/Gilroy-Bold.woff2") format(woff2);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-family: "Stem", sans-serif;
+  --second-family: "Gilroy", sans-serif;
+  --dark: #273947;
+  --subTxt: rgba(255, 255, 255, 0.8);
+  --turquoise: #07a9de;
+  --font-family: "Montserrat", sans-serif;
+  --second-family: "Open Sans", sans-serif;
+  --third-family: "Inter", sans-serif;
+  --container-width: 1110px;
+  --container-padding-x: 20px;
+  --section-padding-y: 25px;
+  --btn-padding: 12px 20px;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--dark);
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+  bottom: 0;
+}
+
+.unBtn {
+  border-radius: 6px;
+  padding: 15px 40px;
+  background: #ef476f;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 17px;
+}
+.header_logo {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 114%;
+}
+.header_hed-number {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 138%;
+  text-align: right;
+}
+.header_number-number {
+  display: flex;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+}
+.nav-header_list {
+  display: flex;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+  text-align: right;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  margin-top: 17px;
+  padding: 25px;
+  height: 720px;
+  -moz-column-gap: 220px;
+       column-gap: 220px;
+}
+.hero_title {
+  max-width: 445px;
+}
+.hero_title h1 {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 106%;
+}
+.hero_title p {
+  font-size: 24px;
+  color: var(--subTxt);
+  margin-top: 24px;
+}
+.hero_bid {
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 445px;
+  max-height: 460px;
+  background: #fff;
+}
+.hero_bid {
+  color: #000;
+  font-size: 18px;
+  line-height: 133%;
+  font-weight: 700;
+}
+.hero_back-img {
+  background-image: url(../../images/main/hero.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bid_form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  row-gap: 16px;
+}
+.bid_contact-us {
+  padding: 16px 20px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+.bid_span {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+  text-align: center;
+}
+
+.honesty {
+  display: flex;
+  padding: 25px;
+  margin-top: 100px;
+  height: 520px;
+  align-items: center;
+  -moz-column-gap: 120px;
+       column-gap: 120px;
+}
+.honesty_title {
+  --second-family: "Gilroy", sans-serif;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  max-width: 540px;
+}
+.honesty_title h2 {
+  font-weight: 700;
+  font-size: 48px;
+}
+.honesty_sup-txt {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--turquoise);
+}
+.honesty_btn {
+  margin-top: 32px;
+}
+
+.repairing {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  row-gap: 64px;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--subTxt);
+}
+.repairing_back-img {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  height: 940px;
+  background-image: linear-gradient(rgba(7, 59, 76, 0.4), rgba(7, 59, 76, 0.4)), url(/images/repairing/repairing.svg);
+  background-color: rgba(7, 59, 76, 0.4);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.repairing_title {
+  font-weight: 700;
+  font-size: 64px;
+  color: #fff;
+}
+.repairing_title p {
+  font-size: 24px;
+}
+
+.body-repairing {
+  display: flex;
+}
+.body-repairing_item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 64px;
+}
+.body-repairing_link {
+  max-width: 350px;
+}
+.body-repairing_link h3 {
+  font-weight: 500;
+  font-size: 28px;
+  color: #fff;
+  margin-top: 32px;
+}
+.body-repairing_link p {
+  margin-top: 16px;
+}
+.body-repairing_icon {
+  display: flex;
+  align-items: center;
+  margin-inline: auto;
+  border-radius: 40px;
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.body-repairing_icon svg {
+  margin-inline: auto;
+}
+
+.reviews {
+  margin-top: 100px;
+  border-radius: 24px;
+  background: #f7f8fa;
+}
+.reviews_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 32px;
+  padding: 80px 95px;
+}
+.reviews_body {
+  font-weight: 700;
+  font-size: 48px;
+  color: #000;
+}
+.reviews_name {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.garage_wrapper {
+  position: relative;
+}
+.garage_slider {
+  margin-top: 100px;
+  height: 798px;
+  background: #fff;
+}
+.garage_slider-img {
+  display: none;
+  width: 100%;
+  height: 798px;
+}
+.garage_navig {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px;
+  position: absolute;
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.garage_circle {
+  display: flex;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 8px;
+}
+.garage_circle img {
+  display: block;
+}
+.garage_circle-active {
+  border: 4px solid #ffd166;
+  border-radius: 8px;
+}
+
+.block {
+  display: block;
+}
+
+.certificates {
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  background: #f2f2f2;
+  height: 500px;
+}
+.certificates_wrapper {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+.certificates_body-text {
+  max-width: 250px;
+}
+.certificates_sup-title {
+  font-weight: 700;
+  font-size: 28px;
+  color: #000;
+}
+.certificates_sub-text {
+  margin-top: 16px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.certificates_img {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.certificates_img-item {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  background: #fff;
+}
+
+.services {
+  background-image: linear-gradient(rgba(7, 59, 76, 0.4), rgba(7, 59, 76, 0.4)), url(/images/main/services.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 830px;
+}
+.services_wrapper {
+  padding: 80px 355px;
+  text-align: center;
+}
+.services_title h2 {
+  font-weight: 700;
+  font-size: 48px;
+}
+.services_title p {
+  margin-top: 16px;
+  color: var(--subTxt);
+}
+.services_footer {
+  margin-top: 55px;
+}
+.services_footer p {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--subTxt);
+}
+
+.body-services {
+  margin-top: 64px;
+}
+.body-services hr {
+  width: 100%;
+  margin: 28px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.body-services_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-block: 100px;
+  background-color: #fff;
+  color: #000;
+}
+.team_title {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  padding-inline: 330px;
+}
+.team_sup-title {
+  font-size: 28px;
+  color: var(--turquoise);
+}
+.team_body-title {
+  font-weight: 700;
+  font-size: 64px;
+}
+.team_sub-title {
+  font-size: 24px;
+}
+
+.body-team {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  margin-top: 64px;
+}
+.body-team_item {
+  padding-inline: 38px;
+}
+.body-team_name {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 24px;
+}
+.body-team_position {
+  margin-top: 8px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: var(--second-family);
+  background-color: var(--turquoise);
+  padding: 100px 165px;
+}
+.contact_title {
+  font-weight: 700;
+  font-size: 48px;
+  padding-inline: 250px;
+}
+.contact_form {
+  margin-top: 40px;
+  display: flex;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+}
+.contact_form-input {
+  padding: 16px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 260px;
+  background: #fff;
+}
+.contact_form-input::-moz-placeholder {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.2);
+}
+.contact_form-input::placeholder {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.2);
+}
+.contact_footer {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--subTxt);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 80px;
+  color: var(--subTxt);
+}
+.footer_wrapper {
+  background-color: #073b4c;
+}
+.footer_contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.nav-footer_list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.messengers {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.messengers_bord {
+  display: flex;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #396270;
+}
+.messengers_bord img {
+  margin-inline: auto;
+}/*# sourceMappingURL=styles.css.map */

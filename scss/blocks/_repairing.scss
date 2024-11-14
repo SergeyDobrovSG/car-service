@@ -1,0 +1,74 @@
+.repairing {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  row-gap: 64px;
+  align-items: center;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--subTxt);
+
+  &_back-img {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    height: 940px;
+
+    background-image: linear-gradient(
+        rgba(7, 59, 76, 0.4),
+        rgba(7, 59, 76, 0.4)
+      ),
+      url(/images/repairing/repairing.svg);
+    background-color: rgba(7, 59, 76, 0.4);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_title {
+    font-weight: 700;
+    font-size: 64px;
+    color: #fff;
+  }
+  &_title p {
+    font-size: 24px;
+  }
+}
+.body-repairing {
+  display: flex;
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 64px;
+  }
+
+  &_link {
+    max-width: 350px;
+  }
+
+  &_link h3 {
+    font-weight: 500;
+    font-size: 28px;
+    color: #fff;
+    margin-top: 32px;
+  }
+  &_link p {
+    margin-top: 16px;
+  }
+
+  &_icon {
+    display: flex;
+    align-items: center;
+    margin-inline: auto;
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+  &_icon svg {
+    margin-inline: auto;
+  }
+}

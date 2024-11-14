@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 17px;
+  &_logo {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 114%;
+  }
+
+  &_hed-number {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 138%;
+    text-align: right;
+  }
+
+  &_number-number {
+    display: flex;
+  }
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  &_list {
+    display: flex;
+
+    column-gap: 24px;
+    text-align: right;
+  }
+}

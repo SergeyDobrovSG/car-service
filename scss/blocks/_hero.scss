@@ -1,0 +1,68 @@
+.hero {
+  display: flex;
+  align-items: center;
+
+  margin-top: 17px;
+  padding: 25px;
+  height: 720px;
+  column-gap: 220px;
+
+  &_title {
+    max-width: 445px;
+  }
+
+  &_title h1 {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 106%;
+  }
+
+  &_title p {
+    font-size: 24px;
+    color: var(--subTxt);
+    margin-top: 24px;
+  }
+
+  &_bid {
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 445px;
+    max-height: 460px;
+    background: #fff;
+  }
+
+  &_bid {
+    color: #000;
+    font-size: 18px;
+
+    line-height: 133%;
+    font-weight: 700;
+  }
+
+  &_back-img {
+    background-image: url(../../images/main/hero.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.bid {
+  &_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    row-gap: 16px;
+  }
+
+  &_contact-us {
+    padding: 16px 20px;
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+
+  &_span {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 15px;
+    text-align: center;
+  }
+}

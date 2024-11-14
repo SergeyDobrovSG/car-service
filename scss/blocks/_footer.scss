@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 80px;
+  color: var(--subTxt);
+  &_wrapper {
+    background-color: #073b4c;
+  }
+
+  &_contacts {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+}
+
+.nav-footer {
+  &_list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+}
+
+.messengers {
+  display: flex;
+  column-gap: 10px;
+
+  &_bord {
+    display: flex;
+    align-items: center;
+
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #396270;
+
+    & img {
+      margin-inline: auto;
+    }
+  }
+}

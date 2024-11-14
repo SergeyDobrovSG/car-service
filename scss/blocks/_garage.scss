@@ -1,0 +1,43 @@
+.garage {
+  &_wrapper {
+    position: relative;
+  }
+
+  &_slider {
+    margin-top: 100px;
+    height: 798px;
+    background: #fff;
+  }
+
+  &_slider-img {
+    display: none;
+    width: 100%;
+    height: 798px;
+  }
+
+  &_navig {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+    position: absolute;
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &_circle {
+    display: flex;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 8px;
+  }
+  &_circle img {
+    display: block;
+  }
+  &_circle-active {
+    border: 4px solid #ffd166;
+    border-radius: 8px;
+  }
+}
+.block {
+  display: block;
+}

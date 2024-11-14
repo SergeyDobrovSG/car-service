@@ -1,0 +1,6 @@
+@import 'nullstyle', 'fonts', 'variables', 'mixins', 'utils', 'globals';
+
+@import './blocks/_header', './blocks/hero', './blocks/_honesty',
+  './blocks/repairing', './blocks/reviews', './blocks/garage',
+  './blocks/certificates', './blocks/services', './blocks/team',
+  './blocks/contact', './blocks/footer';

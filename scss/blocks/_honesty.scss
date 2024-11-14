@@ -1,0 +1,31 @@
+.honesty {
+  display: flex;
+  padding: 25px;
+  margin-top: 100px;
+  height: 520px;
+  align-items: center;
+  column-gap: 120px;
+
+  &_title {
+    --second-family: 'Gilroy', sans-serif;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    max-width: 540px;
+  }
+
+  &_title h2 {
+    font-weight: 700;
+    font-size: 48px;
+  }
+
+  &_sup-txt {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--turquoise);
+  }
+
+  &_btn {
+    margin-top: 32px;
+  }
+}
